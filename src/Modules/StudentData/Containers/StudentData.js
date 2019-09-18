@@ -76,20 +76,18 @@ class StudentData extends Component {
         const { latestStudentData = [] } = this.state;
         let studentCards = latestStudentData.map( (data) => <StudentCard data={data} /> )       
         return (
-            <div >
-                {   <div>
+            <div style={styles.topnav}>
+                <div>
                       <input type="text" style={styles.myInput} value={this.state.value} 
                       onChange={this.handleChange}
                       placeholder="Search for students.." title="Type in a name"></input>
-                      <button type="button" style={{float: "left",width:"15%", height:"40px"}} onClick={this.toggleName}>ToggleName</button>
-                      <button type="button" style={{float: "left",width:"15%",height:"40px"}}onClick={this.toggleMark}>ToggleMark</button>
-                      <button type="button" style={{float: "left",width:"15%",height:"40px"}}onClick={this.onLogout}>Log Out</button>
-                    </div> 
-                }
+                      <button style={styles.inner} type="button" onClick={this.toggleName}>ToggleName</button>
+                      <button style={styles.inner} type="button" onClick={this.toggleMark}>ToggleMark</button>
+                      <button style={styles.inner} type="button" onClick={this.onLogout}>Log Out</button>
+                </div> 
                 <div className="cardContainer">
                 {studentCards}
-                </div>
-                
+                </div>   
             </div>
         )
     }

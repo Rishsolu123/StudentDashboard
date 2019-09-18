@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import { getStudentsResult } from '../../../Actions/StudentResultAction';
-
-
+const divStyle = {
+    width: '25%',
+    height: '100px',
+    margin: '5px',
+    borderRadius: '3px',
+    backgroundColor: '#8ebf42',
+    marginTop: '40px',
+  };
 class StudentDesc extends Component {
     constructor(props){
         super(props);
@@ -25,7 +31,7 @@ class StudentDesc extends Component {
 
         const [{id, name, total, class: className , rollNo }] = data;
         return (
-            <div>
+            <div style={divStyle}>
                 <div>Id: <span>{id}</span></div>
                 <div>Name: <span>{name}</span></div>
                 <div>Class: <span>{className}</span></div>
