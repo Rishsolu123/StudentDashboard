@@ -2,7 +2,7 @@
 
 To run the application:
 
-git clone https://github.com/Rishsolu123/StudentDashboard.git
-cd StudentDashboard
-yarn install
-yarn start
+1. git clone https://github.com/Rishsolu123/StudentDashboard.git
+2. cd StudentDashboard
+3. yarn install
+4. yarn start
