@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import { getStudentsResult } from '../../../Actions/StudentResultAction';
-const divStyle = {
-    width: '25%',
-    height: '100px',
-    margin: '5px',
-    borderRadius: '3px',
-    backgroundColor: '#8ebf42',
-    marginTop: '40px',
-  };
+import BarChart from '../Components/BarChart'
+import styles from '../styles'
+
 class StudentDesc extends Component {
     constructor(props){
         super(props);
@@ -27,16 +22,26 @@ class StudentDesc extends Component {
     const { id } = this.state;
     const { studentData = [] } = this.props;
     const data = studentData.filter( (data) => {return data.id.toString() === id.toString()} )
-    if(data !== undefined && data !== null && data.length > 0){
 
-        const [{id, name, total, class: className , rollNo }] = data;
+
+    if(data !== undefined && data !== null && data.length > 0){
+        const [{id, name, total, class: className , rollNo, marks }] = data;
+
+      const _subjectData = [];
+      for (let key in marks) {
+        _subjectData.push({x: key, y: marks[key]});
+      }
+
         return (
-            <div style={divStyle}>
-                <div>Id: <span>{id}</span></div>
-                <div>Name: <span>{name}</span></div>
-                <div>Class: <span>{className}</span></div>
-                <div>Roll No: <span>{rollNo}</span></div>
-                <div>Total Marks: <span>{total}</span></div>
+            <div style={styles.detailCard}>
+                <div style={styles.detailItem}>Id: <span>{id}</span></div>
+                <div style={styles.detailItem}>Name: <span>{name}</span></div>
+                <div style={styles.detailItem}>Class: <span>{className}</span></div>
+                <div style={styles.detailItem}>Roll No: <span>{rollNo}</span></div>
+                <div style={styles.detailItem}>Total Marks: <span>{total}</span></div>
+                <div style ={styles.barChart}>
+                <BarChart data = {_subjectData}/>
+                </div>
             </div>
         )
     

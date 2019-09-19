@@ -17,6 +17,25 @@ const styles = {
         width:'10%',
         height: '90%',
         display: 'inline-block'
+    },
+
+
+    // student detail
+    detailCard: {
+        width: '100%',
+        // height: '100px',
+        // margin: '5px',
+        borderRadius: '3px',
+        backgroundColor: '#8ebf42',
+        // marginTop: '40px',
+        padding: '10px',
+      },
+    detailItem: {
+        padding: '10px',
+    },
+    barChart:{
+        width: '25%',
+        height: '25%',
     }
     
 }
